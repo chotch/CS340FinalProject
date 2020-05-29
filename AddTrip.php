@@ -15,37 +15,57 @@
 <div id = "frm1" div class="container">
 <form action="saveTrip.php" method="post">
   <label for="name"> <b> Trip Name: </b></label>
-  <input type="text" name="tripname" id="service" placeholder="Enter Name" name="service">
+  <input type="text" name="tripname" id="service" placeholder="Enter Name">
 
   <label for="rating"> <b> Rating: </b></label>
-  <input type="text" name="rating" id="service" placeholder="Enter Rating" name="service">
+  <input type="text" name="rating" id="service" placeholder="Enter Rating">
 
   <label for="cost"> <b> Cost: </b></label>
-  <input type="text" name="cost" id="service" placeholder="Enter Cost" name="service">
+  <input type="text" name="cost" id="service" placeholder="Enter Cost">
 
   <button type="submit"> Save Trip </button>
 </form>
 
 </div>
+  <h1 class="logo">Add Location to My Trip</h1>
 
 <div id = "frm1" div class="container">
-  <label for="enterMywn"> <b> Date: </b></label>
-  <input type="text" id="service" placeholder="Enter Date" name="service">
+  <form action="saveLocation.php" method="post">
+    <label for="city"> <b> City: </b> </label>
+    <input type="text" name="city" id="service" placeholder="Enter City">
 
-  <label for="enterMyOwn"> <b> Location(s): </b></label>
-  <input type="text" id="service" placeholder="Enter Location(s)" name="service">
+    <label for="state"> <b> State: </b> </label>
+    <input type="text" name="state" id="service" placeholder="Enter State">
 
-  <label for="enterMyOwn"> <b> Lodging: </b></label>
-  <input type="text" id="service" placeholder="Enter Lodging" name="service">
+    <label for="country"> <b> Country: </b> </label>
+    <input type="text" name="country" id="service" placeholder="Enter Country">
+
+    <label for="date"> <b> Date: </b> </label>
+    <input type="text" name="date" id="service" placeholder="Enter Date (yyyy-mm-dd)">
+    <button type="submit"> Save Location to my Trip </button>
+  </form>
+</div>
+
+  <h1 class="logo">Add Information about my Location</h1>
+<div id = "frm1" div class="container">
+  <form action="saveInfo.php" method="post">
+    <label for="lodging"> <b> Lodging: </b> </label>
+    <input type="text" name="lodging" id="service" placeholder="Enter lodging (can be left empty)">
+
+    <label for="food"> <b> Food: </b> </label>
+    <input type="text" name="food" id="service" placeholder="Enter food (can be left empty)">
+
+    <label for="activity"> <b> Activity: </b> </label>
+    <input type="text" name="activity" id="service" placeholder="Enter activity (can be left empty)">
+
+    <button type="submit"> Save Information to my Location </button>
+  </form>
+</div>
 
 
-  <label for="enterMyOwn"> <b> Food: </b></label>
-  <input type="text" id="service" placeholder="Enter Food" name="service">
 
-  <label for="enterMyOwn"> <b> Activity: </b></label>
-  <input type="text" id="service" placeholder="Enter Activity" name="service">
 <!-- action to new page? after submission -->
-<button onclick="window.location.href = 'ViewTrips.php'"> Submit - Add Trip </button>
+<button onclick="window.location.href = 'ViewTrips.php'"> View my Trips </button>
 
 <button onclick="window.location.href = 'Home.php'"> Return to Home Page </button>
 
