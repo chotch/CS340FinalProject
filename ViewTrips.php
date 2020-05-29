@@ -79,10 +79,10 @@
       <label for="enterMyOwn"> <b> Activity: get activity from SQL query  </b></label>
     </div>
 
-    <button onclick="window.location.href = 'Home.html'" class = "delete_button"> Delete this Trip </button>
+    <button onclick="window.location.href = 'Home.php'" class = "delete_button"> Delete this Trip </button>
     </div>
     <!-- action to new page? after submission -->
-    <button onclick="window.location.href = 'Home.html'"> Return to Home Page </button>
+    <button onclick="window.location.href = 'Home.php'"> Return to Home Page </button>
 
     </div>
     </body>

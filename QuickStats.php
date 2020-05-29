@@ -35,7 +35,7 @@
 
 
 <!-- action to new page? after submission -->
-<button onclick="window.location.href = 'Home.html'"> Return to Home Page </button>
+<button onclick="window.location.href = 'Home.php'"> Return to Home Page </button>
 
 </div>
 

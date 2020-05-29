@@ -34,9 +34,9 @@
   <label for="enterMyOwn"> <b> Activity: </b></label>
   <input type="text" id="service" placeholder="Enter Activity" name="service">
 <!-- action to new page? after submission -->
-<button onclick="window.location.href = 'ViewTrips.html'"> Submit - Add Trip </button>
+<button onclick="window.location.href = 'ViewTrips.php'"> Submit - Add Trip </button>
 
-<button onclick="window.location.href = 'Home.html'"> Return to Home Page </button>
+<button onclick="window.location.href = 'Home.php'"> Return to Home Page </button>
 
 </div>
 
