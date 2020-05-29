@@ -12,9 +12,9 @@
 <div class="container" >
 <!-- action to new page? after submission -->
 <!-- must adjust the href location so that it changes to the new html page -->
-  <button onclick="window.location.href= 'ViewTrips.html'"> View Trips </button>
-  <button onclick="window.location.href = 'AddTrip.html'"> Add Trip </button>
-  <button onclick="window.location.href = 'QuickStats.html'"> Quick Stats </button>
+  <button onclick="window.location.href= 'ViewTrips.php'"> View Trips </button>
+  <button onclick="window.location.href = 'AddTrip.php'"> Add Trip </button>
+  <button onclick="window.location.href = 'QuickStats.php'"> Quick Stats </button>
 
 </div>
 
