@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="Home.css">
+        <style><?php include 'Home.css'; ?></style>
         <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@500&display=swap" rel="stylesheet">
         <title>Travel Tracker</title>
     </head>

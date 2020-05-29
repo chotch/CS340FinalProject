@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="Home.css">
+        <style><?php include 'Home.css'; ?></style>
         <title>View Trips</title>
     </head>
     <body>
