@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="Home.css">
+        <style><?php include 'Home.css'; ?></style>
         <title>View Trips</title>
     </head>
     <body>
@@ -45,7 +45,7 @@ while ($row = mysqli_fetch_array($result)){
 
   if ($row['trip_name'] != $currName){
     echo "<div class='container'>";
-    echo $row['trip_name'];
+    echo "Name of my trip: " . $row['trip_name'];
     echo "<div id = 'frm1' div class='container'>";
   //  echo "<label for='enterMyOwn'> <b>";
     echo "Date: " . $row['date'];
