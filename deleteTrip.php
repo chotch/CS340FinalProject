@@ -15,6 +15,6 @@ if(mysqli_query($link, $sql)){
   print ("Failed");
 }
 
-echo "<script>location.href='Home.php'</script>";
+echo "<script>location.href='ViewTrips.php'</script>";
 
  ?>

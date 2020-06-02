@@ -44,8 +44,8 @@ $currName = "";
 while ($row = mysqli_fetch_array($result)){
 
   if ($row['trip_name'] != $currName){
-    echo "<div class='container'>";
-    echo "Name of my trip: " . $row['trip_name'];
+    echo "<div id = 'frm3' class='container'>";
+    echo "Trip Name: " . $row['trip_name'];
     echo "<div id = 'frm1' div class='container'>";
   //  echo "<label for='enterMyOwn'> <b>";
     echo "Date: " . $row['date'];
@@ -75,6 +75,11 @@ while ($row = mysqli_fetch_array($result)){
 
     echo "<div id = 'frm1' div class='container'>";
     echo "Activity: " . $row['indoor'];
+    echo "</div>";
+
+    echo "</div>";
+    echo "<a href='UpdateTrip.php?id=" . $row['trip_ID'] . "&locationid=" . $row['location_ID'] . "' ><button class='update_button'>Update</button></a>";
+    echo "</div>";
     echo "</div>";
 
     echo "</div>";

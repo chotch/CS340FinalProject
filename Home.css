@@ -20,8 +20,12 @@ body {
 }
 
 #frm2 {
-    font-size: 40px;
-    color: red;
+    font-size: 30px;
+    color: #ff5c4a;
+}
+
+#frm3 {
+    font-size: 30px;
 }
 
 /* Set a style for all buttons */
@@ -48,14 +52,19 @@ button:hover {
 }
 
 .delete_button {
-
-    /* background-color: #ff968a; */
     background-color: #ff5c4a;
 }
 
 .delete_button:hover {
     opacity: 0.9;
-    background-color: #ff5c4a;
+}
+
+.update_button {
+    background-color: #ebda71;
+}
+
+.update_button:hover {
+    opacity: 0.9;
 }
 
 
