@@ -69,24 +69,33 @@
             on A.minCost = B.minCost";
 
     // finds maxRating of all Trips taken by user whos traveller_ID is specified as $userID
-    $sql7 = "SELECT B.* FROM
-            (SELECT max(rating) as maxRating FROM Trip) A
-            JOIN
-            (SELECT trip_ID, trip_name, rating as maxRating FROM Trip) B
-            on A.maxRating = B.maxRating
-            JOIN
-            (SELECT trip_ID, traveller_ID from takes_a WHERE traveller_ID = $userID) C
-            on B.trip_ID = C.trip_ID";
+  //  $sql7 = "SELECT B.* FROM
+          //  (SELECT max(rating) as maxRating FROM Trip) A
+          //  JOIN
+          //  (SELECT trip_ID, trip_name, rating as maxRating FROM Trip) B
+          //  on A.maxRating = B.maxRating
+          //  JOIN
+          //  (SELECT trip_ID, traveller_ID from takes_a WHERE traveller_ID = $userID) C
+          //  on B.trip_ID = C.trip_ID";
 
+            $sql7 = "SELECT trip_name, rating
+            FROM Trip WHERE trip_ID IN (SELECT trip_ID FROM takes_a WHERE traveller_ID = $userID)
+            ORDER BY rating DESC limit 1";
     // finds minRating of all Trips taken by user whos traveller_ID is specified as $userID
-    $sql8 = "SELECT B.* FROM
-            (SELECT min(rating) as minRating FROM Trip) A
-            JOIN
-            (SELECT trip_ID, trip_name, rating as minRating FROM Trip) B
-            on A.minRating = B.minRating
-            JOIN
-            (SELECT trip_ID, traveller_ID from takes_a WHERE traveller_ID = $userID) C
-            on B.trip_ID = C.trip_ID";
+    //$sql8 = "SELECT B.* FROM
+      //      (SELECT min(rating) as minRating FROM Trip) A
+        //    JOIN
+          //  (SELECT trip_ID, trip_name, rating as minRating FROM Trip) B
+      //      on A.minRating = B.minRating
+      //      JOIN
+      //      (SELECT trip_ID, traveller_ID from takes_a WHERE traveller_ID = $userID) C
+      //      on B.trip_ID = C.trip_ID";
+
+      $sql8 = "SELECT trip_name, rating
+              FROM Trip WHERE trip_ID IN (SELECT trip_ID FROM takes_a WHERE traveller_ID = $userID)
+              ORDER BY rating limit 1";
+
+
 
     // finds maxCost of all Trips taken by user whos traveller_ID is specified as $userID
     $sql9 = "SELECT trip_name, cost
@@ -126,7 +135,7 @@
     echo "</div>";
     while ($row = mysqli_fetch_array($result7)){
         echo "<div class='container2'>";
-        echo $row['trip_name'] . ": " . $row['maxRating'];
+        echo $row['trip_name'] . ": " . $row['rating'];
         echo "</div>";
     }
 
@@ -135,7 +144,7 @@
     echo "</div>";
     while ($row = mysqli_fetch_array($result8)){
         echo "<div class='container2'>";
-        echo $row['trip_name'] . ": " . $row['minRating'];
+        echo $row['trip_name'] . ": " . $row['rating'];
         echo "</div>";
     }
 
@@ -208,5 +217,3 @@
 <button onclick="window.location.href = 'Home.php'"> Return to Home Page </button>
 
 </div>
-
-
