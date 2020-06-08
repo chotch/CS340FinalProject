@@ -6,11 +6,21 @@
         <title>View Trips</title>
     </head>
     <body>
-
-    <h1 class="logo">View Trips for User with id = 1</h1>
-
 <?php
 require_once 'config.php';
+
+//trying to figure out how to send usrid from Home page to each page
+$usrid = $_REQUEST['newUSRID'];
+
+    echo '<h1 class="logo">View Trips for User with id = ';
+  //  echo $usrid;
+    print($usrid);
+    echo '</h1>';
+
+
+
+
+
 $sql = "SELECT B.trip_ID, B.trip_name, B.rating, B.cost, E.location_ID, E.city, E.date, H.restaurants, H.street_venues, I.indoor, I.outdoor, E2.lodging FROM
 
 (SELECT trip_ID, traveller_ID from takes_a WHERE traveller_ID = 1) C
@@ -49,6 +59,10 @@ while ($row = mysqli_fetch_array($result)){
     echo "<div id = 'frm1' div class='container'>";
   //  echo "<label for='enterMyOwn'> <b>";
     echo "Date: " . $row['date'];
+
+    //
+    print($usrid);
+    //
     //echo "</b> </label>";
     //echo "Date: " . $row['date'];
     echo "</div>";
