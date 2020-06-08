@@ -17,14 +17,24 @@ if ($city != ''){
   $sql = "UPDATE Location
           SET city = '".$city."'
           WHERE location_ID = '".$locationid."'";
-  mysqli_query($link, $sql);
+          if(mysqli_query($link, $sql)){
+            echo '<script>alert("Success, updating city")</script>';
+          }
+          else{
+            echo '<script>alert("Error, could not update city")</script>';
+          }
 }
 
 if ($state != ''){
   $sql = "UPDATE Location
           SET  state = '".$state."'
           WHERE location_ID = '".$locationid."'";
-  mysqli_query($link, $sql);
+          if(mysqli_query($link, $sql)){
+            echo '<script>alert("Success, updating state")</script>';
+          }
+          else{
+            echo '<script>alert("Error, could not update state")</script>';
+          }
 
 }
 
@@ -32,7 +42,12 @@ if ($country != ''){
   $sql = "UPDATE Location
           SET country = '".$country."'
           WHERE location_ID = '".$locationid."'";
-  mysqli_query($link, $sql);
+          if(mysqli_query($link, $sql)){
+            echo '<script>alert("Success, updating country")</script>';
+          }
+          else{
+            echo '<script>alert("Error, could not update country")</script>';
+          }
 
 }
 
@@ -40,7 +55,12 @@ if ($date != ''){
   $sql = "UPDATE Location
           SET date = '".$date."'
           WHERE location_ID = '".$locationid."'";
-  mysqli_query($link, $sql);
+          if(mysqli_query($link, $sql)){
+            echo '<script>alert("Success, updating date")</script>';
+          }
+          else{
+            echo '<script>alert("Error, could not update date")</script>';
+          }
 
 }
 

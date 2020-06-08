@@ -8,21 +8,30 @@ $cost = $_REQUEST['cost'];
 //print ($rating);
 //print ($name);
 
-$sql = "INSERT INTO Trip (cost, rating, trip_name) VALUES ('".$cost."', '".$rating."', '".$name."')"; //--insert a Trip entity given the user input
+if($name != '' && $rating != '' && $cost != ''){
+  $sql = "INSERT INTO Trip (cost, rating, trip_name) VALUES ('".$cost."', '".$rating."', '".$name."')"; //--insert a Trip entity given the user input
 
-if(mysqli_query($link, $sql)){
+  if(mysqli_query($link, $sql)){
 
-  $sql = "INSERT INTO takes_a (traveller_ID, trip_ID) VALUES (1, (SELECT LAST_INSERT_ID()))";
+    $sql = "INSERT INTO takes_a (traveller_ID, trip_ID) VALUES (1, (SELECT LAST_INSERT_ID()))";
 
-  if (mysqli_query($link,$sql)){
-
-    print("Trip Saved");
-  } else{
+    if (mysqli_query($link,$sql)){
+      echo '<script>alert("Success, saving you trip!")</script>';
+      print("Trip Saved");
+    } else{
+      echo '<script>alert("Error, could not handle request to Save Trip")</script>';
+      print("Failed");
+    }
+  } else {
+    echo '<script>alert("Error, could not handle request to Save Trip")</script>';
     print("Failed");
   }
-} else {
-  print("Failed");
 }
+else{
+  echo '<script>alert("Error, you must enter a value for each field in a trip")</script>';
+}
+
+
 
 echo "<script>location.href='AddTrip.php'</script>";
 

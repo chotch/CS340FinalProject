@@ -14,21 +14,36 @@ if ($name != ''){
   $sql = "UPDATE Trip
           SET trip_name = '".$name."'
           WHERE trip_id = '".$id."'";
-  mysqli_query($link, $sql);
+  if(mysqli_query($link, $sql)){
+    echo '<script>alert("Success, updating trip name")</script>';
+  }
+  else{
+    echo '<script>alert("Error, could not update your trip name")</script>';
+  }
 }
 
 if ($rating != ''){
   $sql = "UPDATE Trip
           SET  rating = $rating
           WHERE trip_id = '".$id."'";
-  mysqli_query($link, $sql);
+          if(mysqli_query($link, $sql)){
+            echo '<script>alert("Success, updating trip rating")</script>';
+          }
+          else{
+            echo '<script>alert("Error, could not update your trip rating")</script>';
+          }
 }
 
 if ($cost != ''){
   $sql = "UPDATE Trip
           SET cost = $cost
           WHERE trip_id = '".$id."'";
-  mysqli_query($link, $sql);
+          if(mysqli_query($link, $sql)){
+            echo '<script>alert("Success, updating trip cost")</script>';
+          }
+          else{
+            echo '<script>alert("Error, could not update your trip cost")</script>';
+          }
 }
 
 //$sql = "UPDATE Trip

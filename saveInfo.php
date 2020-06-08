@@ -7,9 +7,9 @@ $a = $_REQUEST['activity'];
 if ($l != ''){
   $sql = "INSERT INTO Location_lodging (lodging, location_ID) VALUES ('".$l."', (SELECT MAX(location_ID) from Location))"; //-- use built in to find last auto increment ID and insert -- into Location_lodging table the Location_ID and the lodging value"
   if (mysqli_query($link, $sql)){
-    print("Lodging Saved");
+    echo '<script>alert("Success, saving lodging to your location.")</script>';
   } else{
-    print("Failed");
+    echo '<script>alert("Error, could not handle request to save lodging")</script>';
   }
 }
 
@@ -19,12 +19,12 @@ if ($a != ''){
   if (mysqli_query($link, $sql)){
     $sql = "INSERT INTO does (location_ID, activity_ID) VALUES ((SELECT MAX(location_ID) FROM Location), (SELECT LAST_INSERT_ID()))";
     if (mysqli_query($link, $sql)){
-      print("Activity Saved");
+      echo '<script>alert("Success, saving activity to your location.")</script>';
     } else{
-      print("Failed");
+      echo '<script>alert("Error, could not handle request to save activity")</script>';
     }
   } else {
-    print("Failed");
+    echo '<script>alert("Error, could not handle request to save activity")</script>';
   }
 }
 
@@ -33,12 +33,12 @@ if ($f != ''){
   if (mysqli_query($link, $sql)){
     $sql = "INSERT INTO eats_at (location_ID, food_ID) VALUES ((SELECT MAX(location_ID) FROM Location), (SELECT LAST_INSERT_ID()))";
     if (mysqli_query($link, $sql)){
-      print("Food Saved");
+      echo '<script>alert("Success, saving food item to your location.")</script>';
     } else{
-      print("Failed");
+      echo '<script>alert("Error, could not handle request to save food")</script>';
     }
   } else {
-    print("Failed");
+    echo '<script>alert("Error, could not handle request to save food")</script>';
   }
 }
 
