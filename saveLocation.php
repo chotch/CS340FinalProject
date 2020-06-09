@@ -1,9 +1,11 @@
 <?php
+session_start();
 require_once 'config.php';
 $c = $_REQUEST['city'];
 $s = $_REQUEST['state'];
 $count = $_REQUEST['country'];
 $d = $_REQUEST['date'];
+$id = $_SESSION["usrid"];
 
 //print($c);
 //print("IM HERE");
@@ -29,5 +31,8 @@ else{
 }
 
 
-echo "<script>location.href='AddTrip.php'</script>";
+// echo "<script>location.href='AddTrip.php'</script>";
+
+$url = "AddTrip.php?usrid=".$id;
+echo '<script>location.href="'.$url.'"</script>';
  ?>

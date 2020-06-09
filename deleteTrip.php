@@ -21,6 +21,8 @@ if(mysqli_query($link, $sql)){
   echo '<script>alert("Error, could not delete your trip")</script>';
 }
 
-echo "<script>location.href='ViewTrips.php'</script>";
+$usrid = $_REQUEST['usrid'];
+$url = "ViewTrips.php?usrid=".$usrid;
+echo '<script>location.href="'.$url.'"</script>';
 
  ?>

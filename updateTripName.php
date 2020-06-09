@@ -51,6 +51,8 @@ if ($cost != ''){
     //    WHERE trip_id = '".$id."'";
 //mysqli_query($link, $sql);
 
- echo "<script>location.href='ViewTrips.php'</script>";
-
+ // echo "<script>location.href='ViewTrips.php'</script>";
+ $usrid = $_SESSION['usrid'];
+ $url = "ViewTrips.php?usrid=".$usrid;
+ echo '<script>location.href="'.$url.'"</script>';
 ?>

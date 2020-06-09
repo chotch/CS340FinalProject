@@ -33,7 +33,7 @@
 <?php
     require_once 'config.php';
 
-    $userID = 1;
+    $userID = $_REQUEST['usrid'];
     // this returns the total number of trips that a user with travellerID equal to $usersID has taken
     $sql1 = "SELECT COUNT(*) AS 'count' FROM takes_a WHERE traveller_ID = $userID";
 
@@ -211,9 +211,11 @@
         echo $row['trip_name'] . ": " . $row['minCost'];
         echo "</div>";
     }
+
+    echo "<a href='Home.php?usrid=" . $userID . "' ><button> Return to Home Page </button></a>";
 ?>
 
 <!-- action to new page? after submission -->
-<button onclick="window.location.href = 'Home.php'"> Return to Home Page </button>
+<!-- <button onclick="window.location.href = 'Home.php'"> Return to Home Page </button> -->
 
 </div>

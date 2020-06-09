@@ -10,20 +10,16 @@
 require_once 'config.php';
 
 //trying to figure out how to send usrid from Home page to each page
-$usrid = $_REQUEST['newUSRID'];
+$usrid = $_REQUEST['usrid'];
 
     echo '<h1 class="logo">View Trips for User with id = ';
-  //  echo $usrid;
     print($usrid);
     echo '</h1>';
 
 
-
-
-
 $sql = "SELECT B.trip_ID, B.trip_name, B.rating, B.cost, E.location_ID, E.city, E.date, H.restaurants, H.street_venues, I.indoor, I.outdoor, E2.lodging FROM
 
-(SELECT trip_ID, traveller_ID from takes_a WHERE traveller_ID = 1) C
+(SELECT trip_ID, traveller_ID from takes_a WHERE traveller_ID = $usrid) C
 LEFT JOIN
 (SELECT trip_ID, trip_name, rating, cost FROM Trip) B
 on B.trip_ID = C.trip_ID
@@ -56,15 +52,10 @@ while ($row = mysqli_fetch_array($result)){
   if ($row['trip_name'] != $currName){
     echo "<div id = 'frm3' class='container'>";
     echo "Trip Name: " . $row['trip_name'];
-    echo "<div id = 'frm1' div class='container'>";
-  //  echo "<label for='enterMyOwn'> <b>";
-    echo "Date: " . $row['date'];
+    echo "</div>";
 
-    //
-    print($usrid);
-    //
-    //echo "</b> </label>";
-    //echo "Date: " . $row['date'];
+    echo "<div id = 'frm1' div class='container'>";
+    echo "Date: " . $row['date'];
     echo "</div>";
 
     echo "<div id = 'frm1' div class='container'>";
@@ -92,12 +83,12 @@ while ($row = mysqli_fetch_array($result)){
     echo "</div>";
 
     echo "</div>";
-    echo "<a href='UpdateTrip.php?id=" . $row['trip_ID'] . "&locationid=" . $row['location_ID'] . "' ><button class='update_button'>Update</button></a>";
+    echo "<a href='UpdateTrip.php?usrid=" . $usrid . "&id=" . $row['trip_ID'] . "&locationid=" . $row['location_ID'] . "' ><button class='update_button'>Update</button></a>";
     echo "</div>";
     echo "</div>";
 
     echo "</div>";
-    echo "<a href='deleteTrip.php?id=" . $row['trip_ID'] . "' ><button class='delete_button'>Delete</button></a>";
+    echo "<a href='deleteTrip.php?usrid=" . $usrid . "&id=" . $row['trip_ID'] . "' ><button class='delete_button'>Delete</button></a>";
     echo "</div>";
     echo "</div>";
 
@@ -105,13 +96,16 @@ while ($row = mysqli_fetch_array($result)){
 
     //<button onclick="window.location.href = 'Home.php'" class = "delete_button"> Delete this Trip </button>
   }
-
 }
+
+
+
+echo "<a href='Home.php?usrid=" . $usrid . "' ><button> Return to Home Page </button></a>";
 ?>
 
 
     <!-- action to new page? after submission -->
-    <button onclick="window.location.href = 'Home.php'"> Return to Home Page </button>
+    <!-- <button onclick="window.location.href = 'Home.php'"> Return to Home Page </button> -->
 
     </div>
     </body>

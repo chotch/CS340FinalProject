@@ -1,8 +1,10 @@
 <?php
+session_start();
 require_once 'config.php';
 $name = $_REQUEST['tripname'];
 $rating = $_REQUEST['rating'];
 $cost = $_REQUEST['cost'];
+$id = $_SESSION["usrid"];
 
 //print ($cost);
 //print ($rating);
@@ -13,7 +15,7 @@ if($name != '' && $rating != '' && $cost != ''){
 
   if(mysqli_query($link, $sql)){
 
-    $sql = "INSERT INTO takes_a (traveller_ID, trip_ID) VALUES (1, (SELECT LAST_INSERT_ID()))";
+    $sql = "INSERT INTO takes_a (traveller_ID, trip_ID) VALUES ($id, (SELECT LAST_INSERT_ID()))";
 
     if (mysqli_query($link,$sql)){
       echo '<script>alert("Success, saving you trip!")</script>';
@@ -33,6 +35,8 @@ else{
 
 
 
-echo "<script>location.href='AddTrip.php'</script>";
-
+// echo "<script>location.href='AddTrip.php'</script>";
+$url = "AddTrip.php?usrid=".$id;
+echo '<script>location.href="'.$url.'"</script>';
  ?>
+
