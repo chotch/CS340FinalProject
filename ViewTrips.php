@@ -50,9 +50,7 @@ LEFT JOIN
 ON G.activity_ID = I.activity_ID";
 $result = mysqli_query($link, $sql);
 $currName = "";
-//if ($result == ''){
-  //print("The user has not logged any trips yet");
-//}
+
 while ($row = mysqli_fetch_array($result)){
 
   if ($row['trip_name'] != $currName){
@@ -103,6 +101,12 @@ while ($row = mysqli_fetch_array($result)){
     //<button onclick="window.location.href = 'Home.php'" class = "delete_button"> Delete this Trip </button>
   }
 }
+if ($result == ''){
+  print("You must select a user first. Return to home page and click User Select.");
+}elseif ($currName =='') {
+  print("This user has not logged any trips yet. Return to home page and click Add Trip.");
+}
+
 
 
 
