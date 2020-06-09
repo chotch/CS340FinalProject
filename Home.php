@@ -47,7 +47,7 @@
         echo "<a href='ViewTrips.php?usrid=" . $myID . "' ><button> View Trips</button></a>";
         echo "<a href='AddTrip.php?usrid=" . $myID . "' ><button>Add Trip</button></a>";
         echo "<a href='QuickStats.php?usrid=" . $myID . "' ><button>Quick Stats</button></a>";
-        echo "<a href='user.php'><button>User Select</button></a>";
+        echo "<a href='user.php'><button class='delete_button'>User Select</button></a>";
       //
       //   echo '</div>';
          ?>
