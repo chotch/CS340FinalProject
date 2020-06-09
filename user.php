@@ -19,7 +19,7 @@
     <h1 class="logo">Select User</h1>
 
     <div class="container" >
-        <form action="/~hotchkch/Home.php">
+        <form action='Home.php'>
         <label for="user"> Select a Traveller </label>
         <select name="usrid" id="usr">
         <?php
