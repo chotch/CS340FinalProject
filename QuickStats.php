@@ -34,6 +34,11 @@
     require_once 'config.php';
 
     $userID = $_REQUEST['usrid'];
+    $sqlName = "SELECT traveller_name FROM Traveller WHERE traveller_ID = $userID";
+    $resName = mysqli_query($link,$sqlName);
+    $rowName = mysqli_fetch_array($resName);
+    $n = $rowName['traveller_name'];
+
     // this returns the total number of trips that a user with travellerID equal to $usersID has taken
     $sql1 = "SELECT COUNT(*) AS 'count' FROM takes_a WHERE traveller_ID = $userID";
 
@@ -121,7 +126,8 @@
     $result10 = mysqli_query($link, $sql10);
 
     echo "<div id = 'frm2'>";
-    echo "Your Facts: ";
+    print ($n);
+    echo"'s Facts: ";
     echo "</div>";
 
     while ($row = mysqli_fetch_array($result1)){

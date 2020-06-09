@@ -19,7 +19,7 @@
     <h1 class="logo">Select User</h1>
 
     <div class="container" >
-        <form action="/~whitbeyc/Home.php">
+        <form action="/~hotchkch/Home.php">
         <label for="user"> Select a Traveller </label>
         <select name="usrid" id="usr">
         <?php
@@ -28,6 +28,8 @@
          $result = mysqli_query($link, $sql);
          while ($row = mysqli_fetch_array($result)){
            echo '<option value="'.$row['traveller_ID'].'"> ' . $row['traveller_name'];
+           echo ", ID = ";
+           echo $row['traveller_ID'];
            echo '</option>';
          }
 

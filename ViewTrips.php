@@ -11,9 +11,13 @@ require_once 'config.php';
 
 //trying to figure out how to send usrid from Home page to each page
 $usrid = $_REQUEST['usrid'];
-
-    echo '<h1 class="logo">View Trips for User with id = ';
-    print($usrid);
+$sql = "SELECT traveller_name FROM Traveller WHERE traveller_ID = $usrid";
+$result = mysqli_query($link, $sql);
+$row=mysqli_fetch_array($result);
+$n=$row['traveller_name'];
+    echo '<h1 class="logo">View Trips for '; // User with id = ';
+    //print($usrid);
+    print($n);
     echo '</h1>';
 
 
@@ -46,7 +50,9 @@ LEFT JOIN
 ON G.activity_ID = I.activity_ID";
 $result = mysqli_query($link, $sql);
 $currName = "";
-
+//if ($result == ''){
+  //print("The user has not logged any trips yet");
+//}
 while ($row = mysqli_fetch_array($result)){
 
   if ($row['trip_name'] != $currName){
