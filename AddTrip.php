@@ -12,6 +12,10 @@
     $usrid = $_GET['usrid'];
 
     $_SESSION["usrid"] = $usrid;
+    if ($usrid == ''){
+      echo '<script>alert("You must use User Select to pick a traveler.")</script>';
+echo '<script>location.href="Home.php"</script>';
+    }
     ?>
 
     <h1 class="logo">Add Trip</h1>
@@ -72,6 +76,7 @@
 <?php
 
     $usrid = $_GET['usrid'];
+
     echo "<a href='ViewTrips.php?usrid=" . $usrid . "' ><button> View my Trips </button></a>";
 
     echo "<a href='Home.php?usrid=" . $usrid . "' ><button> Return to Home Page </button></a>";
